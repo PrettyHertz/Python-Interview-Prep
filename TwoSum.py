@@ -14,11 +14,11 @@ Output: Because nums[0] + nums[1] == 9, we return [0, 1]
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        dict = {}
+        numset = set()
         for i in range(len(nums)):
             secondNumber = target-nums[i]
-            if(secondNumber in dict.keys()):
+            if(secondNumber in numset):
                 secondIndex = nums.index(secondNumber)
                 if(i != secondIndex):
                     return sorted([i, secondIndex])
-            dict.update({nums[i]: i})
+            numset.add(nums[i])
